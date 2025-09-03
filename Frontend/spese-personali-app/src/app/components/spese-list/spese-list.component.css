@@ -1,0 +1,34 @@
+.spese-container {
+  padding: 20px;
+}
+
+.mat-elevation-z8 {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.categoria-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.importo {
+  font-weight: bold;
+  text-align: right;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.no-data mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  margin-bottom: 16px;
+}

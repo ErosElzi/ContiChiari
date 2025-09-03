@@ -1,0 +1,33 @@
+<div class="app-container">
+  <!-- Toolbar -->
+  <mat-toolbar color="primary" class="app-toolbar">
+    <span class="app-title">
+      <mat-icon class="app-icon">account_balance_wallet</mat-icon>
+      Gestione Spese Personali
+    </span>
+    <span class="spacer"></span>
+    <nav class="app-nav">
+      <button mat-button routerLink="/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        Dashboard
+      </button>
+      <button mat-button routerLink="/spese" routerLinkActive="active">
+        <mat-icon>list</mat-icon>
+        Spese
+      </button>
+      <button mat-button routerLink="/nuova-spesa" routerLinkActive="active">
+        <mat-icon>add</mat-icon>
+        Nuova Spesa
+      </button>
+    </nav>
+  </mat-toolbar>
+
+  <!-- Main Content -->
+  <main class="app-content">
+    <div class="content-wrapper">
+      <app-spesa-form *ngIf="currentRoute === '/nuova-spesa'" (speseUpdated)="refreshSpese()"></app-spesa-form>
+      <app-spese-list #speseList *ngIf="currentRoute === '/spese'"></app-spese-list>
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

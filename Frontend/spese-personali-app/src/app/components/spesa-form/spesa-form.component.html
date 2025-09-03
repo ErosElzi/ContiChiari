@@ -1,0 +1,65 @@
+<div class="form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Aggiungi Nuova Spesa</mat-card-title>
+      <mat-card-subtitle>Inserisci i dettagli della spesa</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form [formGroup]="spesaForm" (ngSubmit)="onSubmit()">
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Descrizione</mat-label>
+          <input matInput formControlName="descrizione" placeholder="Es: Spesa al supermercato">
+          <mat-error *ngIf="descrizione?.hasError('required')">La descrizione è obbligatoria</mat-error>
+          <mat-error *ngIf="descrizione?.hasError('maxlength')">La descrizione non può superare i 200 caratteri</mat-error>
+        </mat-form-field>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Importo (€)</mat-label>
+            <input matInput type="number" step="0.01" formControlName="importo" placeholder="0.00">
+            <mat-error *ngIf="importo?.hasError('required')">L'importo è obbligatorio</mat-error>
+            <mat-error *ngIf="importo?.hasError('min')">L'importo deve essere maggiore di 0</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Data</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="data">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="data?.hasError('required')">La data è obbligatoria</mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Categoria</mat-label>
+          <mat-select formControlName="categoriaId">
+            <mat-option *ngFor="let categoria of categorie" [value]="categoria.id">
+              <span class="categoria-option" [style.background-color]="categoria.colore">
+                {{categoria.nome}}
+              </span>
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="categoriaId?.hasError('required')">La categoria è obbligatoria</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Note (opzionale)</mat-label>
+          <textarea matInput rows="3" formControlName="note" placeholder="Note aggiuntive..."></textarea>
+          <mat-error *ngIf="note?.hasError('maxlength')">Le note non possono superare i 500 caratteri</mat-error>
+        </mat-form-field>
+
+      </form>
+    </mat-card-content>
+    
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" 
+              [disabled]="!spesaForm.valid || isLoading"
+              (click)="onSubmit()">
+        <mat-icon *ngIf="isLoading">refresh</mat-icon>
+        <span>{{isLoading ? 'Salvataggio...' : 'Salva Spesa'}}</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
