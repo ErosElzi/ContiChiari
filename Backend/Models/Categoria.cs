@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SpesePersonaliAPI.Models
 {
@@ -16,6 +17,7 @@ namespace SpesePersonaliAPI.Models
         [StringLength(300)]
         public string? Descrizione { get; set; }
         
+        [JsonIgnore]
         public List<Spesa> Spese { get; set; } = new List<Spesa>();
     }
 }

@@ -126,7 +126,16 @@ export class DashboardComponent implements OnInit {
       next: (spese) => {
         this.numeroSpese = spese.length;
         this.totalSpese = spese.reduce((sum, spesa) => sum + spesa.importo, 0);
-        this.spesaMedia = this.numeroSpese > 0 ? this.totalSpese / this.numeroSpese : 0;
+        // Calcola spesa media mensile
+        const mesiUnici = new Set();
+        spese.forEach(spesa => {
+          const data = new Date(spesa.data);
+          const chiaveMese = `${data.getFullYear()}-${data.getMonth()}`;
+          mesiUnici.add(chiaveMese);
+        });
+        
+        const numeroMesi = mesiUnici.size;
+        this.spesaMedia = numeroMesi > 0 ? this.totalSpese / numeroMesi : 0;
       },
       error: (error) => console.error('Errore nel caricamento statistiche:', error)
     });
