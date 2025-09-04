@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpesePersonaliAPI", "Backend\SpesePersonaliAPI.csproj", "{FE937635-76A6-C779-9C06-68D1650EBE99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE937635-76A6-C779-9C06-68D1650EBE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE937635-76A6-C779-9C06-68D1650EBE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE937635-76A6-C779-9C06-68D1650EBE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE937635-76A6-C779-9C06-68D1650EBE99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAE85B58-2C5E-472B-90B5-EF7F263D0C30}
+	EndGlobalSection
+EndGlobal
